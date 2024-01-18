@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junaid House Builder</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 3d room -->
+
+    <button class="ui-button" onclick="placeObj()">Add object</button>
+    <button class="ui-button" onclick='window.open("https://abujuni.dev","__blank")''>Add object</button>
+
+    <a-scene>
+      <a-sky color="black"></a-sky>
+      <a-camera
+        position="0 10 28"
+        reverse-mouse-drag="true"
+        look-controls
+        id="myCursor"
+      >
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <!-- Cube maker entity -->
+      <a-entity
+        id="cubeMaker"
+        raycaster="objects: .cube"
+      ></a-entity>
+
+
+
+      <a-plane
+        position="0 0 0"
+        width="30"
+        height="30"
+        rotation="-90 0 0"
+        color="white"
+      ></a-plane>
+    </a-scene>
+
+    <!-- ui -->
+    <div class="ui-container">
+      <div class="ui-main-container">
+        <h1>Junaid House Builder</h1>
+        <h2>Object :</h2>
+        <p>shape :</p>
+        <select name="obj" id="obj-selector" aria-placeholder="Shape">
+          <option value="cube">Cube</option>
+          <option value="sphere">Sphere</option>
+          <option value="portrait">Portrait</option>
+          <option value="lamp">Lamp</option>
+          <option value="bulb">Bulb</option>
+          <option value="table">Table</option>
+          <option value="carpet">Carpet</option>
+          <option value="chair">Chair</option>
+        </select>
+        <p>Color :</p>
+        <input type="color" name="Select color" id="colorPicker" value="#3196be8c"/>
+        <b>OR</b>
+        <p>Image :</p>
+        <input
+          type="file"
+          name="img"
+          id="filePicker"
+          placeholder="Texture Image [.png only]"
+          accept=".png"
+        />
+
+        <h2>Size :</h2>
+        <input type="number" name="Height" id="height" placeholder="Height" value="2" />
+        <input type="number" name="Width" id="width" placeholder="Width" value="2"/>
+        <input type="number" name="Depth" id="depth-radius" placeholder="Depth/Radius" value="2"/>
+
+        <h2>Export : </h2>
+        <button>Export [.gbl]</button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
